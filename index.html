@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skknny - بيتك في أمان</title>
+  <!-- خط "Cairo" من جوجل لتصميم عصري -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- ستايل Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+    }
+    .hero-bg {
+      background: linear-gradient(to bottom, #f0f4f8, #e2e8f0);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- قسم العنوان الرئيسي (Hero Section) مع خلفية متدرجة -->
+  <header class="hero-bg py-20 px-4">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-right">
+      
+      <!-- محتوى النص والأزرار -->
+      <div class="md:w-1/2 mb-12 md:mb-0">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-indigo-700 leading-tight mb-4 animate-fade-in-down">Skknny</h1>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 animate-fade-in-up">مستأجرك بأمان، وبيتك مضمون.</h2>
+        <p class="text-lg text-gray-600 mb-8 animate-fade-in-up">
+          نحن نربطك بالمستأجرين الموثوقين، ونوفر لك راحة البال من خلال نظام تأمين شامل على الممتلكات.
+        </p>
+        
+        <!-- أزرار التحميل بتصميم أفضل -->
+        <div class="flex flex-col sm:flex-row justify-center md:justify-end gap-4">
+          <a href="#" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+            حمّل من Google Play
+          </a>
+          <a href="#" class="bg-gray-800 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 transform hover:scale-105">
+            حمّل من App Store
+          </a>
+        </div>
+      </div>
+      
+      <!-- قسم الصورة مع تصميم أكثر جاذبية -->
+      <div class="md:w-1/2">
+        <div class="bg-indigo-200 rounded-3xl p-4 shadow-2xl relative animate-fade-in-right">
+          <!-- شكل خلفي جذاب -->
+          <div class="absolute inset-0 bg-indigo-500 rounded-2xl transform rotate-3 -z-10 opacity-70"></div>
+          <img src="https://placehold.co/600x400/818CF8/FFFFFF?text=صورة+للتطبيق" alt="واجهة تطبيق Skknny" class="rounded-2xl w-full relative z-10">
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- قسم المميزات بتصميم أنيق -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-16 text-indigo-700">لماذا تختار Skknny؟</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- ميزة 1 -->
+        <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
+          <div class="text-5xl mb-4 text-indigo-500">🏠</div>
+          <h4 class="text-2xl font-bold mb-2">ضمان المستأجر</h4>
+          <p class="text-gray-600">نظام فحص دقيق للمستأجرين لضمان المصداقية والأمان التام.</p>
+        </div>
+        <!-- ميزة 2 -->
+        <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
+          <div class="text-5xl mb-4 text-indigo-500">🛡️</div>
+          <h4 class="text-2xl font-bold mb-2">تأمين شامل</h4>
+          <p class="text-gray-600">برنامج تأمين على الممتلكات يحميك من أي أضرار غير متوقعة.</p>
+        </div>
+        <!-- ميزة 3 -->
+        <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
+          <div class="text-5xl mb-4 text-indigo-500">📊</div>
+          <h4 class="text-2xl font-bold mb-2">إدارة بسيطة</h4>
+          <p class="text-gray-600">لوحة تحكم سهلة لإدارة كل العقود والمدفوعات والمستأجرين.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم للتواصل -->
+  <footer class="py-12 bg-gray-900 text-white text-center">
+    <div class="container mx-auto px-4">
+      <p>تواصل معنا عبر البريد الإلكتروني: <a href="mailto:info@skknny.com" class="text-indigo-400 hover:underline">info@skknny.com</a></p>
+      <p class="mt-4 text-sm text-gray-400">جميع الحقوق محفوظة &copy; 2024 Skknny</p>
+    </div>
+  </footer>
+
+</body>
+</html>
