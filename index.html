@@ -4,7 +4,7 @@
   <meta name="google-site-verification" content="Zo9Ogdnq8eTmCehp2vBLo5MoXPqcJwmVQHiMtufLWpE" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skknny - بيتك في أمان</title>
+  <title>Skknny App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
@@ -14,29 +14,26 @@
       font-family: 'Cairo', sans-serif;
     }
     .hero-bg {
-      background: linear-gradient(to bottom, #FFFBEB, #FEF3C7);
+      background: linear-gradient(to bottom, #FAFAFA, #EABA34);
     }
-    /* الألوان الذهبية */
-    .text-gold-700 { color: #B45309; }
-    .bg-gold-600 { background-color: #D97706; }
-    .hover\:bg-gold-700:hover { background-color: #B45309; }
-    .text-gold-500 { color: #EAB308; }
-    .bg-gold-200 { background-color: #FEF08A; }
-    .bg-gold-500 { background-color: #EAB308; }
-    .text-gold-400 { color: #FCD34D; }
+    
+    /* الألوان الجديدة المستخلصة من التطبيق */
+    .primary-text { color: #EABA34; }
+    .primary-bg { background-color: #EABA34; }
+    .primary-hover:hover { background-color: #D4940F; }
+    .secondary-text { color: #424242; }
+    .secondary-bg { background-color: #424242; }
+    .accent-color { color: #D4940F; }
+    .bg-light-grey { background-color: #FAFAFA; }
 
-    /* تعديل لبعض الألوان التي لا يمكن تغييرها مباشرة في Tailwind */
-    .shadow-2xl {
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);
-    }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-light-grey text-secondary-text">
 
   <nav class="bg-white py-4 px-4 shadow-sm">
     <div class="container mx-auto flex justify-between items-center">
-      <a href="#" class="text-lg font-bold text-gray-800">Skknny</a>
-      <a href="#" class="text-sm font-semibold text-gold-700 hover:underline">الشروط والأحكام</a>
+      <a href="#" class="text-lg font-bold text-secondary-text">Skknny</a>
+      <a href="#terms" class="text-sm font-semibold primary-text hover:underline">الشروط والأحكام</a>
     </div>
   </nav>
 
@@ -44,23 +41,23 @@
     <div class="container mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-right">
       
       <div class="md:w-1/2 mb-12 md:mb-0">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-gold-700 leading-tight mb-4 animate-fade-in-down">Skknny</h1>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 animate-fade-in-up">مستأجرك بأمان، وبيتك مضمون.</h2>
-        <p class="text-lg text-gray-600 mb-8 animate-fade-in-up">
+        <h1 class="text-5xl md:text-6xl font-extrabold primary-text leading-tight mb-4 animate-fade-in-down">Skknny</h1>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-secondary-text animate-fade-in-up">مستأجرك بأمان، وبيتك مضمون.</h2>
+        <p class="text-lg text-secondary-text mb-8 animate-fade-in-up">
           نحن نربطك بالمستأجرين الموثوقين، ونوفر لك راحة البال من خلال نظام تأمين شامل على الممتلكات.
         </p>
         
         <div class="flex flex-col sm:flex-row justify-center md:justify-end gap-4">
-          <a href="#" class="bg-gold-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gold-700 transition duration-300 transform hover:scale-105">
+          <a href="#" class="primary-bg text-white font-bold py-3 px-8 rounded-full shadow-lg primary-hover transition duration-300 transform hover:scale-105">
             حمّل من Google Play
           </a>
         </div>
       </div>
       
       <div class="md:w-1/2">
-        <div class="bg-gold-200 rounded-3xl p-4 shadow-2xl relative animate-fade-in-right">
-          <div class="absolute inset-0 bg-gold-500 rounded-2xl transform rotate-3 -z-10 opacity-70"></div>
-          <img src="https://placehold.co/600x400/D97706/FFFFFF?text=صورة+للتطبيق" alt="واجهة تطبيق Skknny" class="rounded-2xl w-full relative z-10">
+        <div class="bg-white rounded-3xl p-4 shadow-2xl relative animate-fade-in-right border-4 border-[#D4940F]">
+          <div class="absolute inset-0 bg-[#EABA34] rounded-2xl transform rotate-3 -z-10 opacity-70"></div>
+          <img src="https://placehold.co/600x400/D4940F/FFFFFF?text=صورة+للتطبيق" alt="واجهة تطبيق Skknny" class="rounded-2xl w-full relative z-10">
         </div>
       </div>
 
@@ -69,33 +66,100 @@
 
   <section class="py-20 bg-white">
     <div class="container mx-auto px-4 text-center">
-      <h3 class="text-3xl font-bold mb-16 text-gold-700">لماذا تختار Skknny؟</h3>
+      <h3 class="text-3xl font-bold mb-16 primary-text">لماذا تختار Skknny؟</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
-          <div class="text-5xl mb-4 text-gold-500">🏠</div>
+        <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform duration-300 border border-secondary-text">
+          <div class="text-5xl mb-4 accent-color">🏠</div>
           <h4 class="text-2xl font-bold mb-2">ضمان المستأجر</h4>
-          <p class="text-gray-600">نظام فحص دقيق للمستأجرين لضمان المصداقية والأمان التام.</p>
+          <p class="text-secondary-text">نظام فحص دقيق للمستأجرين لضمان المصداقية والأمان التام.</p>
         </div>
-        <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
-          <div class="text-5xl mb-4 text-gold-500">🛡️</div>
+        <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform duration-300 border border-secondary-text">
+          <div class="text-5xl mb-4 accent-color">🛡️</div>
           <h4 class="text-2xl font-bold mb-2">تأمين شامل</h4>
-          <p class="text-gray-600">برنامج تأمين على الممتلكات يحميك من أي أضرار غير متوقعة.</p>
+          <p class="text-secondary-text">برنامج تأمين على الممتلكات يحميك من أي أضرار غير متوقعة.</p>
         </div>
-        <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform duration-300 border border-gray-100">
-          <div class="text-5xl mb-4 text-gold-500">📊</div>
+        <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform duration-300 border border-secondary-text">
+          <div class="text-5xl mb-4 accent-color">📊</div>
           <h4 class="text-2xl font-bold mb-2">إدارة بسيطة</h4>
-          <p class="text-gray-600">لوحة تحكم سهلة لإدارة كل العقود والمدفوعات والمستأجرين.</p>
+          <p class="text-secondary-text">لوحة تحكم سهلة لإدارة كل العقود والمدفوعات والمستأجرين.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-12 bg-gray-900 text-white text-center">
+  <footer class="py-12 secondary-bg text-white text-center">
     <div class="container mx-auto px-4">
-      <p>تواصل معنا عبر البريد الإلكتروني: <a href="mailto:info@skknny.com" class="text-gold-400 hover:underline">info@skknny.com</a></p>
-      <p class="mt-4 text-sm text-gray-400">جميع الحقوق محفوظة &copy; 2024 Skknny</p>
+      <p>تواصل معنا عبر البريد الإلكتروني: <a href="mailto:thecaser.mohamed@gmail.com" class="primary-text hover:underline">info@skknny.com</a></p>
+      <p class="mt-4 text-sm text-gray-400">جميع الحقوق محفوظة &copy; 2025 Skknny</p>
     </div>
   </footer>
 
+  <section id="terms" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-8 text-center primary-text">الشروط والأحكام</h2>
+      <p class="text-lg text-secondary-text mb-8">
+        نُقدم لك هنا تفاصيل حول آلية عمل تطبيق "سَكنّي" لمساعدتك على فهم الشروط التي تحكم استخدامك للمنصة، سواء كنت مؤجراً أو مستأجراً.
+      </p>
+
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold primary-text mb-4">نظرة عامة على التطبيق</h3>
+        <p class="text-secondary-text">
+          تطبيق **"سَكنّي"** هو منصة مصممة لمساعدة الطلاب المغتربين في العثور على سكن مناسب بأسعار معقولة. يتيح التطبيق للمؤجرين عرض الشقق المتاحة وتفاصيلها، بينما يمكّن الطلاب المستأجرين من تصفح الخيارات واختيار السكن الذي يناسب احتياجاتهم.
+        </p>
+      </div>
+
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold primary-text mb-4">تسجيل المستخدمين</h3>
+        <ul class="list-disc list-inside text-secondary-text space-y-4">
+          <li>
+            <strong class="primary-text">التسجيل كمؤجر:</strong>
+            يجب على المؤجرين توفير بيانات شخصية مفصلة (الاسم، الرقم القومي، رقم الهاتف، الإيميل) وكلمة مرور. يمكنهم أيضاً إضافة صورة شخصية.
+          </li>
+          <li>
+            <strong class="primary-text">التسجيل كمستأجر:</strong>
+            يتم التسجيل ببيانات أساسية (الاسم، الإيميل، كلمة السر). لضمان الأمان، يتم تفعيل خاصية "طلب OTP" عند إدخال الإيميل لإرسال كود تحقق.
+          </li>
+          <li>
+            <strong class="primary-text">تسجيل الدخول:</strong>
+            صفحة تسجيل دخول موحدة تسمح للمستخدمين بالوصول إلى حساباتهم باستخدام البريد الإلكتروني أو رقم الهاتف وكلمة المرور.
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold primary-text mb-4">إدارة الشقق وتصفحها</h3>
+        <ul class="list-disc list-inside text-secondary-text space-y-4">
+          <li>
+            <strong class="primary-text">لوحة تحكم المؤجر:</strong>
+            صفحة "إدارة الشقق" هي المساحة التي يمكن للمؤجرين من خلالها إضافة شقق جديدة أو تعديل وحذف الشقق الحالية.
+          </li>
+          <li>
+            <strong class="primary-text">إضافة شقة:</strong>
+            يتمكن المؤجر من إضافة تفاصيل شاملة عن الشقة (الاسم، الوصف، عدد الغرف، السعر)، بالإضافة إلى تحديد موقعها على خرائط جوجل وتحميل صور (حتى 10 صور).
+          </li>
+          <li>
+            <strong class="primary-text">الصفحة الرئيسية للمستأجر:</strong>
+            تتضمن شريط بحث متقدم لتصفية النتائج (الموقع، السعر، عدد الأسرّة) وقائمة بالشقق المتاحة.
+          </li>
+          <li>
+            <strong class="primary-text">صفحة تفاصيل الشقة:</strong>
+            عند النقر على شقة معينة، يتم عرض ألبوم صور كامل، والسعر، ووصف مفصل، بالإضافة إلى معلومات الاتصال بالمؤجر.
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold primary-text mb-4">ملاحظات هامة</h3>
+        <ul class="list-disc list-inside text-secondary-text space-y-4">
+          <li>
+            تم تصميم عرض الشقق في الصفحات (20 شقة في كل صفحة) لتجنب استهلاك موارد الجهاز العالية (RAM) وتحسين أداء التطبيق.
+          </li>
+          <li>
+            في حالة نسيان كلمة المرور، يتيح التطبيق إعادة تعيينها من خلال إرسال كود تحقق على الإيميل المسجل.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
