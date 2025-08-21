@@ -15,8 +15,9 @@
     body {
       font-family: 'Cairo', sans-serif;
     }
+    
     .hero-bg {
-      background: linear-gradient(135deg, #FAFAFA 0%, #EABA34 100%);
+      background: linear-gradient(135deg, #f8fafc 0%, #EABA34 100%);
       position: relative;
       overflow: hidden;
     }
@@ -32,14 +33,22 @@
       opacity: 0.1;
     }
     
-    /* الألوان الجديدة المستخلصة من التطبيق */
-    .primary-text { color: #EABA34; }
-    .primary-bg { background-color: #EABA34; }
-    .primary-hover:hover { background-color: #D4940F; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(234, 186, 52, 0.3); }
-    .secondary-text { color: #424242; }
-    .secondary-bg { background-color: #424242; }
-    .accent-color { color: #D4940F; }
-    .bg-light-grey { background-color: #FAFAFA; }
+    /* الألوان المحدثة */
+    .primary-text { color: #EABA34 !important; }
+    .primary-bg { background-color: #EABA34 !important; }
+    .primary-hover:hover { 
+      background-color: #D4940F !important; 
+      transform: translateY(-2px); 
+      box-shadow: 0 10px 25px rgba(234, 186, 52, 0.3); 
+    }
+    .secondary-text { color: #1a202c !important; }
+    .secondary-bg { background-color: #2d3748 !important; }
+    .accent-color { color: #D4940F !important; }
+    .bg-light-grey { background-color: #f7fafc !important; }
+    
+    /* إصلاح النصوص البيضاء */
+    .text-contrast { color: #1a202c !important; }
+    .text-white-fixed { color: #ffffff !important; }
     
     /* تحسينات الأنيميشن */
     @keyframes fadeInUp {
@@ -87,9 +96,9 @@
     
     /* تأثيرات متقدمة */
     .glass-effect {
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.98) !important;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
     
     .gradient-text {
@@ -108,9 +117,29 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
     
-    /* تحسين التفاعل */
-    .smooth-scroll {
-      scroll-behavior: smooth;
+    /* تحسين التجاوب */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem !important;
+        line-height: 1.1;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.5rem !important;
+        line-height: 1.3;
+      }
+      
+      .section-padding {
+        padding: 3rem 1rem !important;
+      }
+      
+      .card-padding {
+        padding: 1.5rem !important;
+      }
+      
+      .text-responsive {
+        font-size: 0.875rem !important;
+      }
     }
     
     /* تصميم النافذة المنبثقة */
@@ -122,24 +151,24 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(5px);
     }
     
     .modal-content {
       background-color: white;
-      margin: 5% auto;
-      padding: 30px;
+      margin: 2% auto;
+      padding: 2rem;
       border-radius: 20px;
-      width: 90%;
-      max-width: 600px;
-      max-height: 80vh;
+      width: 95%;
+      max-width: 700px;
+      max-height: 90vh;
       overflow-y: auto;
       animation: fadeInUp 0.5s ease-out;
     }
     
     .close {
-      color: #aaa;
+      color: #666;
       float: left;
       font-size: 28px;
       font-weight: bold;
@@ -151,108 +180,144 @@
       color: #EABA34;
     }
 
+    /* تحسين الإعلانات والنصوص */
+    .feature-card {
+      background: white !important;
+      border: 1px solid #e2e8f0 !important;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .gradient-card-primary {
+      background: linear-gradient(135deg, #EABA34, #D4940F) !important;
+    }
+
+    .gradient-card-secondary {
+      background: linear-gradient(135deg, #2d3748, #4a5568) !important;
+    }
+
+    /* تحسين القوائم للهواتف */
+    @media (max-width: 640px) {
+      .mobile-menu {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+      }
+    }
+
+    /* إصلاح مشاكل النصوص */
+    .modal-text {
+      color: #1a202c !important;
+    }
+
+    .white-text {
+      color: #ffffff !important;
+    }
+
   </style>
 </head>
-<body class="bg-light-grey text-secondary-text smooth-scroll">
+<body class="bg-light-grey text-contrast">
 
   <!-- Navigation -->
-  <nav class="glass-effect py-4 px-4 shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center">
-      <a href="#" class="text-2xl font-black gradient-text">Skknny</a>
-      <div class="flex gap-6">
-        <a href="#about" class="text-sm font-semibold primary-text hover:underline transition-all duration-300">عن التطبيق</a>
-        <a href="#features" class="text-sm font-semibold primary-text hover:underline transition-all duration-300">المميزات</a>
-        <a href="#download" class="text-sm font-semibold primary-text hover:underline transition-all duration-300">التحميل</a>
-        <button onclick="openModal('termsModal')" class="text-sm font-semibold primary-text hover:underline transition-all duration-300">الشروط والأحكام</button>
-        <button onclick="openModal('privacyModal')" class="text-sm font-semibold primary-text hover:underline transition-all duration-300">سياسة الخصوصية</button>
+  <nav class="glass-effect py-3 px-4 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+      <a href="#" class="text-2xl sm:text-3xl font-black gradient-text mb-2 sm:mb-0">Skknny</a>
+      <div class="mobile-menu flex flex-wrap justify-center gap-3 sm:gap-6">
+        <a href="#about" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">عن التطبيق</a>
+        <a href="#features" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">المميزات</a>
+        <a href="#download" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">التحميل</a>
+        <button onclick="openModal('termsModal')" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">الشروط</button>
+        <button onclick="openModal('privacyModal')" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">الخصوصية</button>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero-bg py-24 px-4 relative">
-    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-right relative z-10">
+  <header class="hero-bg section-padding py-12 sm:py-20 lg:py-24 px-4 relative">
+    <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between text-center lg:text-right relative z-10">
       
-      <div class="md:w-1/2 mb-12 md:mb-0 mx-auto">
-        <h1 class="text-6xl md:text-8xl font-black gradient-text leading-tight mb-6 animate-fade-in-down">Skknny</h1>
-        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-secondary-text animate-fade-in-up">راحة مؤكدة للمؤجرين والمستأجرين</h2>
-        <p class="text-xl text-secondary-text mb-8 animate-fade-in-up leading-relaxed opacity-80">
+      <div class="lg:w-1/2 mb-8 lg:mb-0 max-w-2xl">
+        <h1 class="hero-title text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black gradient-text leading-tight mb-4 sm:mb-6 animate-fade-in-down">Skknny</h1>
+        <h2 class="hero-subtitle text-xl sm:text-2xl lg:text-4xl font-bold mb-4 sm:mb-6 secondary-text animate-fade-in-up">راحة مؤكدة للمؤجرين والمستأجرين</h2>
+        <p class="text-base sm:text-lg lg:text-xl secondary-text mb-6 sm:mb-8 animate-fade-in-up leading-relaxed opacity-80 px-4 sm:px-0">
           منصة آمنة وموثوقة تربط بين المؤجرين والمستأجرين<br>
           مصممة خصيصاً للطلاب المغتربين للعثور على سكن مناسب
         </p>
         
-        <div id="download" class="flex flex-col sm:flex-row justify-center md:justify-center gap-6 animate-fade-in-up">
-          <a href="#" class="primary-bg text-white font-bold py-4 px-10 rounded-full shadow-2xl primary-hover transition-all duration-300 text-lg">
+        <div id="download" class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 sm:gap-6 animate-fade-in-up px-4 sm:px-0">
+          <a href="#" class="primary-bg white-text font-bold py-3 px-6 sm:py-4 sm:px-8 lg:px-10 rounded-full shadow-2xl primary-hover transition-all duration-300 text-base sm:text-lg">
             حمّل من Google Play
           </a>
         </div>
       </div>
       
-      <!-- إضافة صورة تطبيق أو موكاب -->
-      <div class="md:w-1/2 flex justify-center animate-pulse-slow">
-        <div class="w-80 h-96 bg-white rounded-3xl shadow-2xl flex items-center justify-center">
-          <div class="text-8xl"> </div>
+      <div class="lg:w-1/2 flex justify-center animate-pulse-slow mt-8 lg:mt-0">
+        <div class="w-48 h-64 sm:w-64 sm:h-80 lg:w-80 lg:h-96 bg-white rounded-3xl shadow-2xl flex items-center justify-center">
+          <div class="text-5xl sm:text-6xl lg:text-8xl">🏠</div>
         </div>
       </div>
     </div>
   </header>
 
   <!-- Features Section -->
-  <section id="features" class="py-24 bg-white">
+  <section id="features" class="section-padding py-12 sm:py-20 bg-white">
     <div class="container mx-auto px-4 text-center">
-      <h3 class="text-5xl font-black mb-6 gradient-text">لماذا تختار Skknny؟</h3>
-      <p class="text-xl text-secondary-text mb-16 opacity-80">حلول متكاملة لجعل تجربة الإيجار أكثر أماناً وسهولة</p>
+      <h3 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 gradient-text">لماذا تختار Skknny؟</h3>
+      <p class="text-base sm:text-lg lg:text-xl secondary-text mb-8 sm:mb-12 lg:mb-16 opacity-80">حلول متكاملة لجعل تجربة الإيجار أكثر أماناً وسهولة</p>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-        <div class="bg-white p-10 rounded-3xl shadow-2xl card-hover border border-gray-100">
-          <div class="text-7xl mb-6 animate-pulse-slow">🛡️</div>
-          <h4 class="text-3xl font-bold mb-4 gradient-text">آمن للمستأجر</h4>
-          <p class="text-secondary-text text-lg leading-relaxed">نظام فحص دقيق للمؤجرين مع التحقق من الهوية والمستندات لضمان المصداقية والأمان التام في كل معاملة.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 lg:mb-16">
+        <div class="feature-card card-padding p-6 sm:p-8 lg:p-10 rounded-3xl shadow-lg card-hover">
+          <div class="text-4xl sm:text-5xl lg:text-6xl mb-3 sm:mb-4 lg:mb-6 animate-pulse-slow">🛡️</div>
+          <h4 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4 gradient-text">آمن للمستأجر</h4>
+          <p class="secondary-text text-sm sm:text-base lg:text-lg leading-relaxed">نظام فحص دقيق للمؤجرين مع التحقق من الهوية والمستندات لضمان المصداقية والأمان التام في كل معاملة.</p>
         </div>
         
-        <div class="bg-white p-10 rounded-3xl shadow-2xl card-hover border border-gray-100">
-          <div class="text-7xl mb-6 animate-pulse-slow">⚡</div>
-          <h4 class="text-3xl font-bold mb-4 gradient-text">سهل للمؤجر</h4>
-          <p class="text-secondary-text text-lg leading-relaxed">واجهة بسيطة وسهلة لعرض الشقق لجمهور واسع مع أدوات تسويق متقدمة تسهل عملية التأجير.</p>
+        <div class="feature-card card-padding p-6 sm:p-8 lg:p-10 rounded-3xl shadow-lg card-hover">
+          <div class="text-4xl sm:text-5xl lg:text-6xl mb-3 sm:mb-4 lg:mb-6 animate-pulse-slow">⚡</div>
+          <h4 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4 gradient-text">سهل للمؤجر</h4>
+          <p class="secondary-text text-sm sm:text-base lg:text-lg leading-relaxed">واجهة بسيطة وسهلة لعرض الشقق لجمهور واسع مع أدوات تسويق متقدمة تسهل عملية التأجير.</p>
         </div>
         
-        <div class="bg-white p-10 rounded-3xl shadow-2xl card-hover border border-gray-100">
-          <div class="text-7xl mb-6 animate-pulse-slow">📊</div>
-          <h4 class="text-3xl font-bold mb-4 gradient-text">إدارة ذكية</h4>
-          <p class="text-secondary-text text-lg leading-relaxed">لوحة تحكم متطورة لإدارة العقود والمدفوعات والمستأجرين مع تقارير تفصيلية وتنبيهات ذكية.</p>
+        <div class="feature-card card-padding p-6 sm:p-8 lg:p-10 rounded-3xl shadow-lg card-hover">
+          <div class="text-4xl sm:text-5xl lg:text-6xl mb-3 sm:mb-4 lg:mb-6 animate-pulse-slow">📊</div>
+          <h4 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4 gradient-text">إدارة ذكية</h4>
+          <p class="secondary-text text-sm sm:text-base lg:text-lg leading-relaxed">لوحة تحكم متطورة لإدارة العقود والمدفوعات والمستأجرين مع تقارير تفصيلية وتنبيهات ذكية.</p>
         </div>
       </div>
       
-      <!-- إضافة مزيد من المميزات -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div class="bg-gradient-to-r from-secondary-bg to-gray-600 p-8 rounded-3xl shadow-2xl text-white">
-          <div class="text-6xl mb-4">🔍</div>
-          <h4 class="text-2xl font-bold mb-4">بحث متقدم</h4>
-          <p class="text-lg opacity-90">فلاتر ذكية للعثور على السكن المثالي حسب الموقع والسعر والمواصفات</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-4xl mx-auto">
+        <div class="gradient-card-primary p-6 sm:p-8 rounded-3xl shadow-2xl white-text">
+          <div class="text-4xl sm:text-5xl lg:text-6xl mb-4">🔍</div>
+          <h4 class="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 white-text">بحث متقدم</h4>
+          <p class="text-sm sm:text-base lg:text-lg opacity-90 white-text">فلاتر ذكية للعثور على السكن المثالي حسب الموقع والسعر والمواصفات</p>
+        </div>
+
+        <div class="gradient-card-secondary p-6 sm:p-8 rounded-3xl shadow-2xl white-text">
+          <div class="text-4xl sm:text-5xl lg:text-6xl mb-4">💬</div>
+          <h4 class="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 white-text">تواصل مباشر</h4>
+          <p class="text-sm sm:text-base lg:text-lg opacity-90 white-text">نظام محادثة آمن ومشفر للتواصل المباشر بين المؤجر والمستأجر</p>
         </div>
       </div>
     </div>
   </section>
 
- 
   <!-- About Section -->
-  <section id="about" class="py-24 bg-white">
+  <section id="about" class="section-padding py-12 sm:py-20 bg-gray-50">
     <div class="container mx-auto px-4">
-      <h2 class="text-5xl font-black mb-12 text-center gradient-text">عن التطبيق</h2>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 sm:mb-8 lg:mb-12 text-center gradient-text">عن التطبيق</h2>
       <div class="max-w-4xl mx-auto">
-        <p class="text-xl text-secondary-text mb-8 leading-relaxed text-center">
+        <p class="text-base sm:text-lg lg:text-xl secondary-text mb-6 sm:mb-8 leading-relaxed text-center px-4 sm:px-0">
           <strong class="gradient-text">تطبيق "سَكنّي"</strong> هو منصة متطورة مصممة خصيصاً لمساعدة الطلاب المغتربين والباحثين عن السكن في العثور على مسكن مناسب بأسعار معقولة وبطريقة آمنة وموثوقة.
         </p>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
-          <div class="bg-gradient-to-br from-primary-bg to-accent-color p-8 rounded-3xl text-white shadow-2xl">
-            <h3 class="text-2xl font-bold mb-4">🎯 رؤيتنا</h3>
-            <p class="text-lg leading-relaxed opacity-90">نسعى لتكون المنصة الرائدة في مصر والشرق الأوسط لربط المؤجرين الموثوقين بالمستأجرين الباحثين عن الأمان والراحة.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mt-8 sm:mt-12 lg:mt-16">
+          <div class="gradient-card-primary card-padding p-6 sm:p-8 rounded-3xl white-text shadow-2xl">
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 white-text">🎯 رؤيتنا</h3>
+            <p class="text-sm sm:text-base lg:text-lg leading-relaxed opacity-90 white-text">نسعى لتكون المنصة الرائدة في مصر والشرق الأوسط لربط المؤجرين الموثوقين بالمستأجرين الباحثين عن الأمان والراحة.</p>
           </div>
           
-          <div class="bg-gradient-to-br from-secondary-bg to-gray-600 p-8 rounded-3xl text-white shadow-2xl">
-            <h3 class="text-2xl font-bold mb-4">⚡ مهمتنا</h3>
-            <p class="text-lg leading-relaxed opacity-90">تبسيط عملية البحث عن السكن وجعلها أكثر شفافية وأماناً من خلال التكنولوجيا المتطورة والتحقق الدقيق.</p>
+          <div class="gradient-card-secondary card-padding p-6 sm:p-8 rounded-3xl white-text shadow-2xl">
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 white-text">⚡ مهمتنا</h3>
+            <p class="text-sm sm:text-base lg:text-lg leading-relaxed opacity-90 white-text">تبسيط عملية البحث عن السكن وجعلها أكثر شفافية وأماناً من خلال التكنولوجيا المتطورة والتحقق الدقيق.</p>
           </div>
         </div>
       </div>
@@ -260,12 +325,12 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="py-20 bg-light-grey">
+  <section class="section-padding py-12 sm:py-20 bg-white">
     <div class="container mx-auto px-4 text-center">
-      <h3 class="text-4xl font-bold mb-8 gradient-text">تواصل معنا</h3>
-      <p class="text-xl text-secondary-text mb-8">نحن هنا لمساعدتك! لا تتردد في التواصل معنا</p>
-      <div class="flex flex-col md:flex-row justify-center gap-8">
-        <a href="mailto:theceaser.mohamed@gmail.com" class="primary-bg text-white font-bold py-4 px-8 rounded-full shadow-lg primary-hover transition-all duration-300 text-lg">
+      <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 lg:mb-8 gradient-text">تواصل معنا</h3>
+      <p class="text-base sm:text-lg lg:text-xl secondary-text mb-6 sm:mb-8">نحن هنا لمساعدتك! لا تتردد في التواصل معنا</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 lg:gap-8">
+        <a href="mailto:theceaser.mohamed@gmail.com" class="primary-bg white-text font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-full shadow-lg primary-hover transition-all duration-300 text-sm sm:text-base lg:text-lg">
           📧 راسلنا عبر البريد
         </a>
       </div>
@@ -273,22 +338,22 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-16 secondary-bg text-white text-center">
+  <footer class="py-8 sm:py-12 lg:py-16 secondary-bg white-text text-center">
     <div class="container mx-auto px-4">
-      <div class="mb-8">
-        <h3 class="text-3xl font-bold gradient-text mb-4">Skknny</h3>
-        <p class="text-lg opacity-80">راحة مؤكدة للمؤجرين والمستأجرين</p>
+      <div class="mb-4 sm:mb-6 lg:mb-8">
+        <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text mb-2 sm:mb-4">Skknny</h3>
+        <p class="text-sm sm:text-base lg:text-lg opacity-80 white-text">راحة مؤكدة للمؤجرين والمستأجرين</p>
       </div>
       
-      <div class="flex flex-wrap justify-center gap-8 mb-8">
-        <button onclick="openModal('termsModal')" class="text-primary-bg hover:underline transition-all duration-300">الشروط والأحكام</button>
-        <button onclick="openModal('privacyModal')" class="text-primary-bg hover:underline transition-all duration-300">سياسة الخصوصية</button>
-        <a href="#about" class="text-primary-bg hover:underline transition-all duration-300">عن التطبيق</a>
-        <a href="mailto:theceaser.mohamed@gmail.com" class="text-primary-bg hover:underline transition-all duration-300">تواصل معنا</a>
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-8 mb-4 sm:mb-6 lg:mb-8">
+        <button onclick="openModal('termsModal')" class="primary-text hover:underline transition-all duration-300 text-xs sm:text-sm lg:text-base">الشروط والأحكام</button>
+        <button onclick="openModal('privacyModal')" class="primary-text hover:underline transition-all duration-300 text-xs sm:text-sm lg:text-base">سياسة الخصوصية</button>
+        <a href="#about" class="primary-text hover:underline transition-all duration-300 text-xs sm:text-sm lg:text-base">عن التطبيق</a>
+        <a href="mailto:theceaser.mohamed@gmail.com" class="primary-text hover:underline transition-all duration-300 text-xs sm:text-sm lg:text-base">تواصل معنا</a>
       </div>
       
-      <p>تواصل معنا عبر البريد الإلكتروني: <a href="mailto:theceaser.mohamed@gmail.com" class="primary-text hover:underline">theceaser.mohamed@gmail.com</a></p>
-      <p class="mt-4 text-sm opacity-60">جميع الحقوق محفوظة &copy; 2025 Skknny. صنع بـ ❤️ في مصر</p>
+      <p class="text-xs sm:text-sm lg:text-base white-text mb-2 sm:mb-4">تواصل معنا عبر البريد الإلكتروني: <a href="mailto:theceaser.mohamed@gmail.com" class="primary-text hover:underline">theceaser.mohamed@gmail.com</a></p>
+      <p class="text-xs sm:text-sm opacity-60 white-text">جميع الحقوق محفوظة &copy; 2025 Skknny. صنع بـ ❤️ في مصر</p>
     </div>
   </footer>
 
@@ -296,16 +361,16 @@
   <div id="termsModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal('termsModal')">&times;</span>
-      <h2 class="text-4xl font-bold mb-8 gradient-text text-center">الشروط والأحكام</h2>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 lg:mb-8 gradient-text text-center">الشروط والأحكام</h2>
       
-      <div class="text-secondary-text space-y-6">
-        <p class="text-lg leading-relaxed">
+      <div class="modal-text space-y-4 sm:space-y-6">
+        <p class="text-sm sm:text-base lg:text-lg leading-relaxed">
           مرحباً بك في تطبيق <strong class="primary-text">"سَكنّي"</strong>. يرجى قراءة هذه الشروط والأحكام بعناية قبل استخدام التطبيق. إن استخدامك للتطبيق يعني موافقتك الكاملة على جميع البنود الواردة أدناه والالتزام بها.
         </p>
 
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">1. تعريفات</h3>
-          <ul class="space-y-3">
+        <div class="bg-gray-50 p-3 sm:p-4 lg:p-6 rounded-xl">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold primary-text mb-3 sm:mb-4">1. تعريفات</h3>
+          <ul class="space-y-1 sm:space-y-2 lg:space-y-3 text-sm sm:text-base">
             <li><strong class="primary-text">التطبيق:</strong> تطبيق "سَكنّي" والموقع الإلكتروني المرتبط به</li>
             <li><strong class="primary-text">المؤجر:</strong> الشخص أو الجهة التي تقوم بعرض العقار للإيجار</li>
             <li><strong class="primary-text">المستأجر:</strong> الشخص الباحث عن عقار للإيجار</li>
@@ -313,12 +378,12 @@
           </ul>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">2. حسابات المستخدمين</h3>
-          <div class="space-y-4">
+        <div class="bg-gray-50 p-3 sm:p-4 lg:p-6 rounded-xl">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold primary-text mb-3 sm:mb-4">2. حسابات المستخدمين</h3>
+          <div class="space-y-2 sm:space-y-3 lg:space-y-4">
             <div>
-              <h4 class="font-bold text-lg mb-2">حسابات المؤجرين:</h4>
-              <ul class="list-disc list-inside space-y-2">
+              <h4 class="font-bold text-sm sm:text-base lg:text-lg mb-2">حسابات المؤجرين:</h4>
+              <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base">
                 <li>يُشترط تقديم بيانات شخصية حقيقية وصحيحة مع إثبات الهوية</li>
                 <li>في حال تبين أن أي من البيانات مزيفة، يحق للتطبيق <strong class="text-red-600">تعطيل الحساب أو حذفه بشكل دائم</strong></li>
                 <li>يخضع المؤجر لعملية تحقق من الهوية قد تستغرق 24-72 ساعة</li>
@@ -326,158 +391,21 @@
             </div>
             
             <div>
-              <h4 class="font-bold text-lg mb-2">حسابات المستأجرين:</h4>
-              <ul class="list-disc list-inside space-y-2">
+              <h4 class="font-bold text-sm sm:text-base lg:text-lg mb-2">حسابات المستأجرين:</h4>
+              <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base">
                 <li>التطبيق مجاني بالكامل للمستأجرين</li>
                 <li>قد تظهر إعلانات غير بسيطة لدعم تشغيل التطبيق</li>
                 <li>حق الإبلاغ عن أي محتوى مشكوك فيه</li>
               </ul>
             </div>
-            
-            <div>
-              <h4 class="font-bold text-lg mb-2">أمن الحساب:</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>يتحمل كل مستخدم مسؤولية الحفاظ على سرية معلومات حسابه</li>
-                <li>يجب إبلاغ إدارة التطبيق فوراً عن أي استخدام غير مصرح به</li>
-                <li>استخدام كلمات مرور قوية </li>
-              </ul>
-            </div>
           </div>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">3. إدارة المحتوى والعقارات</h3>
-          <div class="space-y-4">
-            <div>
-              <h4 class="font-bold text-lg mb-2">إضافة العقارات (للمؤجرين):</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>يجب أن تكون جميع بيانات العقارات صحيحة ودقيقة ومحدثة</li>
-                <li>تقديم صور حقيقية وحديثة للعقار (لا تزيد عن شهر)</li>
-                <li>ذكر جميع التفاصيل المهمة والعيوب إن وُجدت</li>
-                <li>في حالة اكتشاف بيانات خاطئة، يحق للتطبيق <strong class="text-red-600">حذف العقار المعني</strong></li>
-                <li>في حال تكرار الأمر يحق للتطبيق <strong class="text-red-600">حظر المؤجر بشكل دائم</strong></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 class="font-bold text-lg mb-2">المحتوى المحظور:</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>عرض عقارات عليها نزاع قضائي أو قانوني</li>
-                <li>عقارات غير مرخصة أو مخالفة للقوانين المحلية</li>
-                <li>صور أو محتوى غير لائق أو مُضلل</li>
-                <li>للتطبيق الحق في <strong class="text-red-600">إزالة أي محتوى مخالف</strong> وحظر المستخدم</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">4. الرسوم والاشتراكات</h3>
-          <div class="space-y-4">
-            <div>
-              <h4 class="font-bold text-lg mb-2">للمستأجرين:</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>التطبيق مجاني تماماً مدى الحياة</li>
-                <li>لا توجد رسوم خفية أو اشتراكات</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 class="font-bold text-lg mb-2">للمؤجرين:</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>التطبيق مجاني حالياً في فترة الإطلاق</li>
-                <li>يحق لإدارة التطبيق فرض <strong class="primary-text">رسوم رمزية</strong> مستقبلاً مع إشعار مسبق 30 يوماً</li>
-                <li>ستكون الرسوم مقابل خدمات إضافية مثل: الترويج المميز، ودعم أستمرارية التطبيق</li>
-                <li>إذا رفض المؤجر دفع الرسوم المستقبلية، يحق للتطبيق <strong class="text-red-600">تعليق الحساب</strong></li>
-                <li>إذا استمر عدم الدفع لمدة 6 أشهر، يحق للتطبيق حذف جميع العقارات</li>
-                <li>بعد سنة كاملة من عدم الدفع، يحق للتطبيق حذف الحساب نهائياً</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">5. حماية البيانات والخصوصية</h3>
-          <ul class="list-disc list-inside space-y-2">
-            <li>التزام تام بحماية البيانات الشخصية وفقاً لقوانين حماية البيانات</li>
-            <li>عدم مشاركة البيانات مع أطراف ثالثة إلا بموافقة صريحة</li>
-            <li>استخدام تشفير متقدم لحماية المعلومات الحساسة</li>
-            <li>حق المستخدم في طلب حذف بياناته في أي وقت</li>
-          </ul>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">8. إخلاء المسؤولية والحدود القانونية</h3>
-          <div class="space-y-4">
-            <div>
-              <h4 class="font-bold text-lg mb-2">صحة البيانات:</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>التطبيق وسيط تقني ويحاول جاهدا ضمان صحة البيانات المعروضة</li>
-                <li>يجب على المستأجرين <strong class="primary-text">التحقق شخصياً من العقار</strong> قبل التعاقد</li>
-                <li>ننصح بمعاينة العقار في وضح النهار مع مرافق</li>
-                <li>فحص المستندات القانونية قبل دفع أي مبالغ</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 class="font-bold text-lg mb-2">حدود المسؤولية:</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>لا يتحمل التطبيق مسؤولية الخسائر المالية الناتجة عن النزاعات</li>
-                <li>المسؤولية محدودة بقيمة الرسوم المدفوعة للتطبيق فقط</li>
-                <li>لا نتحمل مسؤولية الأضرار غير المباشرة أو التبعية</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">9. الاستخدام المقبول</h3>
-          <ul class="list-disc list-inside space-y-2">
-            <li>استخدام التطبيق للأغراض المشروعة فقط</li>
-            <li>عدم محاولة اختراق أو تعطيل النظام</li>
-            <li>عدم إنشاء حسابات وهمية أو متعددة</li>
-            <li>احترام حقوق الملكية الفكرية للتطبيق</li>
-            <li>عدم نسخ أو توزيع محتوى التطبيق دون إذن</li>
-          </ul>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">10. أحكام عامة</h3>
-          <div class="space-y-4">
-            <div>
-              <h4 class="font-bold text-lg mb-2">التعديلات:</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>يحتفظ التطبيق بالحق في <strong class="primary-text">تعديل هذه الشروط</strong> في أي وقت</li>
-                <li>إشعار المستخدمين بالتعديلات قبل 30 يوماً من تطبيقها</li>
-                <li>استمرار استخدام التطبيق يعني الموافقة على الشروط الجديدة</li>
-                <li>حق المستخدم في إلغاء حسابه إذا لم يوافق على التعديلات</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 class="font-bold text-lg mb-2">القانون المعمول به:</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>تخضع هذه الاتفاقية لقوانين <strong class="primary-text">جمهورية مصر العربية</strong></li>
-                <li>المحاكم المصرية هي المختصة بنظر أي نزاعات</li>
-                <li>اللغة العربية هي المرجع في تفسير هذه الشروط</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 class="font-bold text-lg mb-2">الاتصال:</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>لأي استفسارات حول هذه الشروط: theceaser.mohamed@gmail.com</li>
-                <li>زمن الاستجابة المتوقع: 24-72 ساعة</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-primary-bg text-white p-6 rounded-xl text-center">
-          <p class="font-bold text-lg">
+        <div class="primary-bg white-text p-3 sm:p-4 lg:p-6 rounded-xl text-center">
+          <p class="font-bold text-sm sm:text-base lg:text-lg white-text">
             آخر تحديث: أغسطس 2025
           </p>
-          <p class="mt-2">
+          <p class="mt-2 text-xs sm:text-sm lg:text-base white-text">
             نشكرك على ثقتك في تطبيق "سَكنّي" ونتطلع لخدمتك بأفضل ما لدينا
           </p>
         </div>
@@ -485,33 +413,33 @@
     </div>
   </div>
 
-  <!-- Privacy Policy Modal -->
+  <!-- Privacy Modal -->
   <div id="privacyModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal('privacyModal')">&times;</span>
-      <h2 class="text-4xl font-bold mb-8 gradient-text text-center">سياسة الخصوصية</h2>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 lg:mb-8 gradient-text text-center">سياسة الخصوصية</h2>
       
-      <div class="text-secondary-text space-y-6">
-        <p class="text-lg leading-relaxed">
+      <div class="modal-text space-y-4 sm:space-y-6">
+        <p class="text-sm sm:text-base lg:text-lg leading-relaxed">
           في تطبيق <strong class="primary-text">"سَكنّي"</strong>، نحن ملتزمون بحماية خصوصيتك وأمان بياناتك الشخصية. هذه السياسة توضح كيف نجمع ونستخدم ونحمي معلوماتك.
         </p>
 
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">1. البيانات التي نجمعها</h3>
-          <div class="space-y-4">
+        <div class="bg-gray-50 p-3 sm:p-4 lg:p-6 rounded-xl">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold primary-text mb-3 sm:mb-4">1. البيانات التي نجمعها</h3>
+          <div class="space-y-2 sm:space-y-3 lg:space-y-4">
             <div>
-              <h4 class="font-bold text-lg mb-2">معلومات التسجيل:</h4>
-              <ul class="list-disc list-inside space-y-2">
+              <h4 class="font-bold text-sm sm:text-base lg:text-lg mb-2">معلومات التسجيل:</h4>
+              <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base">
                 <li>الاسم الكامل ورقم الهاتف</li>
                 <li>عنوان البريد الإلكتروني</li>
-                <li> إثبات الهوية (للتحقق فقط)</li>
+                <li>إثبات الهوية (للتحقق فقط)</li>
                 <li>العناوين</li>
               </ul>
             </div>
             
             <div>
-              <h4 class="font-bold text-lg mb-2">بيانات الاستخدام:</h4>
-              <ul class="list-disc list-inside space-y-2">
+              <h4 class="font-bold text-sm sm:text-base lg:text-lg mb-2">بيانات الاستخدام:</h4>
+              <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base">
                 <li>تفاعلاتك مع التطبيق</li>
                 <li>العقارات التي تتصفحها أو تحفظها</li>
                 <li>رسائل المحادثة (مشفرة)</li>
@@ -521,9 +449,9 @@
           </div>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">2. كيف نستخدم بياناتك</h3>
-          <ul class="list-disc list-inside space-y-2">
+        <div class="bg-gray-50 p-3 sm:p-4 lg:p-6 rounded-xl">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold primary-text mb-3 sm:mb-4">2. كيف نستخدم بياناتك</h3>
+          <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base">
             <li>تقديم وتحسين خدمات التطبيق</li>
             <li>التحقق من هوية المستخدمين</li>
             <li>إرسال إشعارات مهمة حول الحساب</li>
@@ -533,15 +461,15 @@
           </ul>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">3. مشاركة البيانات</h3>
-          <div class="space-y-4">
+        <div class="bg-gray-50 p-3 sm:p-4 lg:p-6 rounded-xl">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold primary-text mb-3 sm:mb-4">3. مشاركة البيانات</h3>
+          <div class="space-y-2 sm:space-y-3 lg:space-y-4">
             <p><strong class="text-red-600">نحن لا نبيع بياناتك الشخصية مطلقاً</strong></p>
             
             <div>
-              <h4 class="font-bold text-lg mb-2">قد نشارك معلومات محدودة مع:</h4>
-              <ul class="list-disc list-inside space-y-2">
-                <li>مقدمي الخدمات التقنية (خوادم، تحليلات، شركات الأعلانات) بموجب اتفاقيات حماية صارمة</li>
+              <h4 class="font-bold text-sm sm:text-base lg:text-lg mb-2">قد نشارك معلومات محدودة مع:</h4>
+              <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base">
+                <li>مقدمي الخدمات التقنية بموجب اتفاقيات حماية صارمة</li>
                 <li>السلطات القانونية عند الطلب الرسمي فقط</li>
                 <li>المستخدمين الآخرين (المعلومات الأساسية فقط عند التفاعل)</li>
               </ul>
@@ -549,9 +477,9 @@
           </div>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">4. حماية البيانات</h3>
-          <ul class="list-disc list-inside space-y-2">
+        <div class="bg-gray-50 p-3 sm:p-4 lg:p-6 rounded-xl">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold primary-text mb-3 sm:mb-4">4. حماية البيانات</h3>
+          <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base">
             <li>تشفير جميع البيانات الحساسة</li>
             <li>خوادم آمنة ومحدثة باستمرار</li>
             <li>مراقبة 24/7 ضد التهديدات الأمنية</li>
@@ -560,9 +488,9 @@
           </ul>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-2xl font-bold primary-text mb-4">5. حقوقك</h3>
-          <ul class="list-disc list-inside space-y-2">
+        <div class="bg-gray-50 p-3 sm:p-4 lg:p-6 rounded-xl">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold primary-text mb-3 sm:mb-4">5. حقوقك</h3>
+          <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base">
             <li><strong>الوصول:</strong> طلب نسخة من بياناتك المخزنة</li>
             <li><strong>التصحيح:</strong> تعديل أو تحديث معلوماتك</li>
             <li><strong>الحذف:</strong> طلب حذف حسابك وبياناتك</li>
@@ -571,11 +499,11 @@
           </ul>
         </div>
 
-        <div class="bg-primary-bg text-white p-6 rounded-xl text-center">
-          <p class="font-bold text-lg mb-2">
+        <div class="primary-bg white-text p-3 sm:p-4 lg:p-6 rounded-xl text-center">
+          <p class="font-bold text-sm sm:text-base lg:text-lg mb-2 white-text">
             للاستفسارات حول الخصوصية
           </p>
-          <p>theceaser.mohamed@gmail.com</p>
+          <p class="text-xs sm:text-sm lg:text-base white-text">theceaser.mohamed@gmail.com</p>
         </div>
       </div>
     </div>
@@ -648,6 +576,21 @@
       el.style.transform = 'translateY(30px)';
       el.style.transition = 'all 0.6s ease-out';
       observer.observe(el);
+    });
+
+    // Mobile menu improvements
+    document.addEventListener('DOMContentLoaded', function() {
+      // Ensure proper mobile navigation
+      const navLinks = document.querySelectorAll('nav a, nav button');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          // Close any open modals when navigating
+          document.querySelectorAll('.modal').forEach(modal => {
+            modal.style.display = 'none';
+          });
+          document.body.style.overflow = 'auto';
+        });
+      });
     });
   </script>
 </body>
