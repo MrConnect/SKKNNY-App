@@ -120,25 +120,56 @@
     /* تحسين التجاوب */
     @media (max-width: 768px) {
       .hero-title {
-        font-size: 3rem !important;
+        font-size: 2.5rem !important;
         line-height: 1.1;
       }
       
       .hero-subtitle {
-        font-size: 1.5rem !important;
+        font-size: 1.3rem !important;
         line-height: 1.3;
       }
       
       .section-padding {
-        padding: 3rem 1rem !important;
+        padding: 2rem 1rem !important;
       }
       
       .card-padding {
-        padding: 1.5rem !important;
+        padding: 1.2rem !important;
       }
       
       .text-responsive {
         font-size: 0.875rem !important;
+      }
+      
+      .modal-content {
+        padding: 1.5rem;
+        margin: 5% auto;
+        width: 90%;
+      }
+      
+      .verification-code input {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem !important;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem !important;
+      }
+      
+      .mobile-menu a, .mobile-menu button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+      }
+      
+      .feature-card {
+        padding: 1rem !important;
       }
     }
     
@@ -196,12 +227,12 @@
     }
 
     /* تحسين القوائم للهواتف */
-    @media (max-width: 640px) {
-      .mobile-menu {
-        flex-direction: column !important;
-        gap: 0.5rem !important;
-        width: 100% !important;
-      }
+    .mobile-menu {
+      flex-direction: row !important;
+      gap: 0.5rem !important;
+      width: 100% !important;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     /* إصلاح مشاكل النصوص */
@@ -232,7 +263,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero-bg section-padding py-12 sm:py-20 lg:py-24 px-4 relative">
+  <header id="home" class="hero-bg section-padding py-12 sm:py-20 lg:py-24 px-4 relative">
     <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between text-center lg:text-right relative z-10">
       
       <div class="lg:w-1/2 mb-8 lg:mb-0 max-w-2xl">
@@ -325,7 +356,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="section-padding py-12 sm:py-20 bg-white">
+  <section id="contact" class="section-padding py-12 sm:py-20 bg-white">
     <div class="container mx-auto px-4 text-center">
       <h3 class="text-2xl sm:text-4xl lg:text-5xl font-black mb-6 sm:mb-8 lg:mb-10 gradient-text">تواصل معنا</h3>
       <p class="text-base sm:text-lg lg:text-xl secondary-text mb-6 sm:mb-8">نحن هنا لمساعدتك! لا تتردد في التواصل معنا</p>
@@ -514,11 +545,19 @@
     function openModal(modalId) {
       document.getElementById(modalId).style.display = 'block';
       document.body.style.overflow = 'hidden';
+      // تحديث الرابط عند فتح النافذة المنبثقة
+      if (modalId === 'termsModal') {
+        history.pushState(null, null, '#terms');
+      } else if (modalId === 'privacyModal') {
+        history.pushState(null, null, '#privacy');
+      }
     }
 
     function closeModal(modalId) {
       document.getElementById(modalId).style.display = 'none';
       document.body.style.overflow = 'auto';
+      // إعادة الرابط إلى حالته الأصلية عند إغلاق النافذة
+      history.pushState(null, null, window.location.pathname);
     }
 
     // Close modal when clicking outside
@@ -526,21 +565,39 @@
       if (event.target.classList.contains('modal')) {
         event.target.style.display = 'none';
         document.body.style.overflow = 'auto';
+        history.pushState(null, null, window.location.pathname);
       }
     }
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for navigation links with URL hash update
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
         if (target) {
+          // تحديث رابط المتصفح
+          history.pushState(null, null, targetId);
+          
+          // التمرير السلس إلى القسم
           target.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
           });
         }
       });
+    });
+
+    // التحقق من الـ hash عند تحميل الصفحة
+    window.addEventListener('load', function() {
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        }
+      }
     });
 
     // Add scroll effect to navigation
