@@ -649,6 +649,23 @@
         });
       });
     });
+      // إضافة هذه الدالة لمعالجة الـ hash عند تحميل الصفحة
+    function handleHashOnLoad() {
+      if (window.location.hash) {
+        const hash = window.location.hash.substring(1); // إزالة # من البداية
+        if (hash === 'privacy') {
+          setTimeout(() => openModal('privacyModal'), 300);
+        } else if (hash === 'terms') {
+          setTimeout(() => openModal('termsModal'), 300);
+        }
+      }
+    }
+
+    // استدعاء الدالة عند تحميل الصفحة
+    window.addEventListener('load', handleHashOnLoad);
+    
+    // إضافة مستمع لتغير الـ hash (إذا قام المستخدم بتغيير الرابط يدويًا)
+    window.addEventListener('hashchange', handleHashOnLoad);
   </script>
 </body>
 </html>
