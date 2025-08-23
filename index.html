@@ -256,8 +256,8 @@
         <a href="#about" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">عن التطبيق</a>
         <a href="#features" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">المميزات</a>
         <a href="#download" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">التحميل</a>
-        <button onclick="openModal('termsModal')" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">الشروط</button>
-        <button onclick="openModal('privacyModal')" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">الخصوصية</button>
+        <a href="#privacy" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">الخصوصية</a>
+        <a href="#terms" class="text-sm sm:text-base font-semibold primary-text hover:underline transition-all duration-300">الشروط</a>
       </div>
     </div>
   </nav>
@@ -377,8 +377,8 @@
       </div>
       
       <div class="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-8 mb-4 sm:mb-6 lg:mb-8">
-        <button onclick="openModal('termsModal')" class="primary-text hover:underline transition-all duration-300 text-xs sm:text-sm lg:text-base">الشروط والأحكام</button>
-        <button onclick="openModal('privacyModal')" class="primary-text hover:underline transition-all duration-300 text-xs sm:text-sm lg:text-base">سياسة الخصوصية</button>
+        <a href="#terms" class="primary-text hover:underline transition-all duration-300 text-xs sm:text-sm lg:text-base">الشروط والأحكام</a>
+        <a href="#privacy" class="primary-text hover:underline transition-all duration-300 text-xs sm:text-sm lg:text-base">سياسة الخصوصية</a>
         <a href="#about" class="primary-text hover:underline transition-all duration-300 text-xs sm:text-sm lg:text-base">عن التطبيق</a>
         <a href="mailto:theceaser.mohamed@gmail.com" class="primary-text hover:underline transition-all duration-300 text-xs sm:text-sm lg:text-base">تواصل معنا</a>
       </div>
@@ -557,7 +557,9 @@
       document.getElementById(modalId).style.display = 'none';
       document.body.style.overflow = 'auto';
       // إعادة الرابط إلى حالته الأصلية عند إغلاق النافذة
-      history.pushState(null, null, window.location.pathname);
+      if (window.location.hash === '#terms' || window.location.hash === '#privacy') {
+        history.pushState(null, null, window.location.pathname);
+      }
     }
 
     // Close modal when clicking outside
@@ -565,7 +567,9 @@
       if (event.target.classList.contains('modal')) {
         event.target.style.display = 'none';
         document.body.style.overflow = 'auto';
-        history.pushState(null, null, window.location.pathname);
+        if (window.location.hash === '#terms' || window.location.hash === '#privacy') {
+          history.pushState(null, null, window.location.pathname);
+        }
       }
     }
 
@@ -574,6 +578,15 @@
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
+        
+        if (targetId === '#terms') {
+          openModal('termsModal');
+          return;
+        } else if (targetId === '#privacy') {
+          openModal('privacyModal');
+          return;
+        }
+        
         const target = document.querySelector(targetId);
         if (target) {
           // تحديث رابط المتصفح
@@ -589,16 +602,29 @@
     });
 
     // التحقق من الـ hash عند تحميل الصفحة
-    window.addEventListener('load', function() {
+    function handleHashOnLoad() {
       if (window.location.hash) {
-        const target = document.querySelector(window.location.hash);
-        if (target) {
-          setTimeout(() => {
-            target.scrollIntoView({ behavior: 'smooth' });
-          }, 300);
+        const hash = window.location.hash.substring(1); // إزالة # من البداية
+        if (hash === 'privacy') {
+          setTimeout(() => openModal('privacyModal'), 300);
+        } else if (hash === 'terms') {
+          setTimeout(() => openModal('termsModal'), 300);
+        } else {
+          const target = document.querySelector(window.location.hash);
+          if (target) {
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+          }
         }
       }
-    });
+    }
+
+    // استدعاء الدالة عند تحميل الصفحة
+    window.addEventListener('load', handleHashOnLoad);
+    
+    // إضافة مستمع لتغير الـ hash (إذا قام المستخدم بتغيير الرابط يدويًا)
+    window.addEventListener('hashchange', handleHashOnLoad);
 
     // Add scroll effect to navigation
     window.addEventListener('scroll', function() {
@@ -649,23 +675,6 @@
         });
       });
     });
-      // إضافة هذه الدالة لمعالجة الـ hash عند تحميل الصفحة
-    function handleHashOnLoad() {
-      if (window.location.hash) {
-        const hash = window.location.hash.substring(1); // إزالة # من البداية
-        if (hash === 'privacy') {
-          setTimeout(() => openModal('privacyModal'), 300);
-        } else if (hash === 'terms') {
-          setTimeout(() => openModal('termsModal'), 300);
-        }
-      }
-    }
-
-    // استدعاء الدالة عند تحميل الصفحة
-    window.addEventListener('load', handleHashOnLoad);
-    
-    // إضافة مستمع لتغير الـ hash (إذا قام المستخدم بتغيير الرابط يدويًا)
-    window.addEventListener('hashchange', handleHashOnLoad);
   </script>
 </body>
 </html>
